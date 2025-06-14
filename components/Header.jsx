@@ -29,8 +29,7 @@ const Header = () => {
 
      */
     return <header className="py-8 xl:py-12 text-white">
-        <div className="container mx-auto">
-
+        <div className="container mx-auto flex justify-between items-center">
             {/* LOGO */}
             <Link href="/">
                 {/* Link: Este es un componente de Next.js que se comporta como un <a href="/">, pero con optimización para SPA (Single Page Application). Dentro de este <Link> puedes poner cualquier contenido, como un <h1>, un botón, o una imagen. Next.js detecta esto y hace el comportamiento de enlace. */}
@@ -42,7 +41,7 @@ const Header = () => {
                 font-semibold
                 Aplica un peso de fuente semi-negrita (font-weight: 600)
                 Más fuerte que normal (400), pero no tan grueso como bold (700)  */}
-                    Luke
+                    Josep Pinos
                     <span className="text-accent">.</span></h1>
                 {/*  text-accent: Esta clase no es estándar de Tailwind, seguramente está definida en tu configuración de Tailwind (en tailwind.config.js) */}
             </Link>
@@ -54,14 +53,15 @@ const Header = () => {
             text-accent	Color especial para destacar el punto final */}
 
             {/* DESKTOP NAV & HIRE ME BUTTON */}
-            <div className="hidden xl:flex">
+            <div className="hidden xl:flex items-center gap-8" >
                 <Nav />
                 <Link href="/contact">
-                    <Button>Hire me</Button>
+                    <Button variant="ghost">Hire me</Button>
                 </Link>
             </div>
 
-
+            {/* MOBILE NAV */}
+            <div className="xl:hidden">Mobile nav</div>
 
         </div>
     </header>;

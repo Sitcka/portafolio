@@ -1,15 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-  Estas tres líneas son obligatorias. Importan:
-  Resets base
-  Componentes
-  Utilidades como flex, mt-4, bg-red-500, etc.
-*/
+
 
 @layer base {
-
   body {
     @apply font-primary bg-primary text-white leading-loose;
   }
