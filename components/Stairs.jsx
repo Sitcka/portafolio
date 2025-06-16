@@ -30,12 +30,19 @@ const Stairs = () => {
     CREATING A STAGGERED EFFECT WITH DECREASING DELAY FOR EACH SUBSEQUENT STEP.
     */}
       {[...Array(6)].map((_, index) => {
+        /**
+         * Esto genera 6 <motion.div> que:
+          Se animan de arriba hacia abajo (top: 0% → 100%).
+          Luego “vuelven” hacia arriba si se hace exit.
+          Cada uno tiene un delay diferente, calculado por reverseIndex(index) para que el último se mueva primero y se cree un efecto en cascada (escalonado inverso).
+         */
         return (
           <motion.div key={index} variants={stairAnimation} initial="initial" animate="animate" exit="exit"
             transition={{
               duration: 0.4,
               ease: "easeInOut",
               delay: reverseIndex(index) * 0.1,
+              // reverseIndex() es una función que invierte el orden de animación para crear un efecto descendente y escalonado visualmente más atractivo. Es una técnica muy común en animaciones que imitan caídas, escaleras, ondas, etc.
             }}
             className="h-full w-full bg-white relative"
           />

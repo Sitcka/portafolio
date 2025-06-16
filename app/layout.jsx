@@ -42,6 +42,20 @@ export default function RootLayout({ children }) {
         <PageTransition>
           {children}
         </PageTransition>
+        {/* 
+          ⚙️ ¿Por qué funciona?
+          Gracias a key={pathname}, React desmonta y vuelve a montar el contenedor.
+          AnimatePresence detecta esto y lanza las animaciones de salida (exit) y entrada (initial, animate).
+          motion.div y Stairs hacen el trabajo visual.
+          Tailwind posiciona y organiza todos los elementos de forma responsiva y elegante.
+          | Componente            | Función                                                               |
+          | --------------------- | --------------------------------------------------------------------- |
+          | `Stairs.jsx`          | Renderiza 6 bloques animados como escalones.                          |
+          | `StairTransition.jsx` | Llama a `Stairs` y controla la animación de salida/entrada.           |
+          | `layout.jsx`          | Ubica `StairTransition` y `PageTransition` para animar entre páginas. |
+          | `usePathname + key`   | Fuerzan la reanimación en cada navegación.                            |
+
+        */}
       </body>
     </html>
   );
